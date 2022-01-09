@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import "./Restaurant.css";
-import {TextField ,Container, Grid, Input} from '@mui/material';
+import {TextField ,Container, Grid, Input, Button, AppBar} from '@mui/material';
 import Meals from '../Meals/Meals';
+import { Link, NavLink } from "react-router-dom";
+import SearchResult from '../SearchResult/SearchResult';
 
 const Restaurant = () => {
     const [searchText, setSearchText] = useState('');
     const [meals, setMeals] = useState([]);
+
+      const handleSearchField = e => {
+        const searchTextValue = e.target.value;
+        setSearchText(searchTextValue);
+        e.preventDefault();
+        
+    }
     
     useEffect(() => {
         const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
@@ -14,41 +23,55 @@ const Restaurant = () => {
             .then(data => setMeals(data.meals))
             .catch((error) => console.log(error));
     },[searchText])
-    const handleSearchField = e => {
-        const searchTextValue = e.target.value;
-        setSearchText(searchTextValue);
-        
-    }
+  
     return (
         <Container>
-            <div className="search Container ">
-                <Input
-                    sx={{width:500 , mb:3}}
-                    variant="outlined"
+            <div className="search Container">
+              
+                    <Input
+                    sx={{ width: 500, mt:15, mb:10 }}
                     placeholder='Search Meals'
                     onChange={handleSearchField}
                 />
                 
-                  <div className='food-mapping'>
-                 {
+                    
+            </div>
+            <div className="search-container">
+                <div className=''>
+                    { searchText ?  (
+                        <div className='food-mapping'>
+                            {meals ?(
+                                meals.map(meal => <SearchResult
+                                    meal={meal}
+                                    key={meal.idMeal}
+                                
+                                >    
+                                </SearchResult>)
+                            ) :
+                            (
+                           <Link to="/addNewMeal">add meal</Link>
+     
+                            )}
+
+                        </div>
+                        )
+                        :
+                        (
+                   <div className='food-mapping'>
+                     {
                         meals.map(foods=> <Meals
                             foods={foods}
                             key={foods.idMeal}
                         >  
                        </Meals>)
-                    }
+                      }
 
+                   </div>
+
+                        )}
+
+                </div>
             </div>
-                
-            </div>
-          
-
-                {/* <Grid spacing={2}>
-                   
-                </Grid> */}
-
-           
-            
         </Container>
     );
 };

@@ -1,6 +1,7 @@
 import { Card, CardContent, CardMedia, Container, Divider, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import BackHome from '../BackHome/BackHome';
 
 const Details = () => {
     const { id } = useParams();
@@ -16,6 +17,10 @@ const Details = () => {
     },[id])
     return (
         <>
+            <Container maxWidth="sm" sx={{my:5}}>
+                <BackHome></BackHome>
+            </Container>
+            
         <Container sx={{my:5}}>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
@@ -36,6 +41,9 @@ const Details = () => {
                                 
                                 <Typography sx={{textAlign:'start',color:'success.main'}} gutterBottom variant="h6" component="div">
                                      {meals.strArea}
+                                </Typography>
+                                <Typography sx={{textAlign:'start',color:'success.main'}} gutterBottom variant="h6" component="div">
+                                     {meals.strCategory}
                                 </Typography>
                                 <Divider />
                                 <Typography sx={{ textAlign: 'start', py: 3, lineHeight:2}} variant="body1" color="text.secondary">

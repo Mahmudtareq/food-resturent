@@ -6,6 +6,8 @@ import {
   Route,
 } from "react-router-dom";
 import Details from './Components/Details/Details';
+import SearchResult from './Components/SearchResult/SearchResult';
+import AddNewMeal from './Components/AddNewMeal/AddNewMeal';
 
 function App() {
   return (
@@ -22,6 +24,9 @@ function App() {
             <Details></Details>
           </Route>
         </Switch>
+        <Route path="/addNewMeal">
+        <AddNewMeal></AddNewMeal>
+        </Route>
 
       </Router>
     </div>
