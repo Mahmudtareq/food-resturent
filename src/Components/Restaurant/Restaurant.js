@@ -26,15 +26,14 @@ const Restaurant = () => {
   
     return (
         <Container>
+           
             <div className="search Container">
               
                     <Input
                     sx={{ width: 500, mt:15, mb:10 }}
                     placeholder='Search Meals'
                     onChange={handleSearchField}
-                />
-                
-                    
+                />       
             </div>
             <div className="search-container">
                 <div className=''>
@@ -49,7 +48,7 @@ const Restaurant = () => {
                                 </SearchResult>)
                             ) :
                             (
-                           <Link to="/addNewMeal">add meal</Link>
+                                    <Link style={{ textDecoration: 'none', backgroundColor: 'gray', padding: '10px', textAlign: 'center' }} to="/addNewMeal">Add New Meal { searchText}</Link>
      
                             )}
 
@@ -57,7 +56,9 @@ const Restaurant = () => {
                         )
                         :
                         (
-                   <div className='food-mapping'>
+                    
+                <div className='food-mapping'>
+                                
                      {
                         meals.map(foods=> <Meals
                             foods={foods}

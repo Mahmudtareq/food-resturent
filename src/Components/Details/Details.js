@@ -39,9 +39,13 @@ const Details = () => {
                                     {meals.strMeal}
                                 </Typography>
                                 
-                                <Typography sx={{textAlign:'start',color:'success.main'}} gutterBottom variant="h6" component="div">
+                            <Typography sx={{textAlign:'start',color:'success.main'}} gutterBottom variant="h6" component="div">
                                      {meals.strArea}
-                                </Typography>
+                            </Typography>
+                            <Typography sx={{textAlign:'start',color:'success.main'}} gutterBottom variant="h6" component="div">
+                                     {meals.strTags}
+                            </Typography>
+                          
                                 <Typography sx={{textAlign:'start',color:'success.main'}} gutterBottom variant="h6" component="div">
                                      {meals.strCategory}
                                 </Typography>
