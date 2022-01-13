@@ -10,9 +10,21 @@
         padding: 10px;
         margin-bottom: 10px;
         border-radius: 10px;
+        border: 1px solid blue;
 
     }
-    @media screen and (max-width: 480px) {
+    #button-submit{
+        border: 0px;
+        background-color: rgba(136, 216, 216, 0.849);   
+    }
+    #button-submit:hover{
+        cursor: pointer;
+        box-shadow: 10px 5px 10px gray;
+        
+    }
+
+
+@media screen and (max-width: 480px) {
 .add-service form input, textarea {
        width:90%;
     

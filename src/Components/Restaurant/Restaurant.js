@@ -43,7 +43,6 @@ const Restaurant = () => {
                                 meals.map(meal => <SearchResult
                                     meal={meal}
                                     key={meal.idMeal}
-                                
                                 >    
                                 </SearchResult>)
                             ) :
